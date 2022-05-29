@@ -12,12 +12,12 @@ from pynput import keyboard
 from pythonosc.udp_client import SimpleUDPClient
 
 # configuartion for OSC-Client (sending only)
-ip1 = "192.168.0.29"  # IP of Server
-port1 = 53000  # Listening-Port of server
+ip1 = "192.168.0.29"  # IP of server 1
+port1 = 53000  # Listening-Port of server 1
 client1 = SimpleUDPClient(ip1, port1)  # Create client 1
 
-ip2 = "127.0.0.1"  # IP of Server
-port2 = 53000  # Listening-Port of server
+ip2 = "127.0.0.1"  # IP of server 2
+port2 = 53000  # Listening-Port of server 2
 client2 = SimpleUDPClient(ip2, port2)  # Create client 2
 
 # rebuild buzzer state
@@ -71,7 +71,7 @@ def on_press(key):
             client1.send_message("/cue/hid5/start", "1")
             client2.send_message("/cue/hid5/start", "1")
             locked = False
-        else key.char == '6':
+        elif key.char == '6':
             print("lock")
             client1.send_message("/cue/hid6/start", "1")
             client2.send_message("/cue/hid6/start", "1")
