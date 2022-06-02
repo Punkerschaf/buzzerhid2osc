@@ -6,7 +6,7 @@ Description:
 Converts HID keypresses of "Buzzersystem Quattro"
 to OSC-Commands for two Servers
 
-Version 1.2
+Version 1.3.1
 
 Config-VAR: buzzthru -> rebuild locking-logic in script or pass thru Buzzer 1-4
 """
@@ -100,6 +100,13 @@ def on_press(key):
             client1.send_message("/cue/buzzlock/start", "1")
             client2.send_message("/control/buzzlock/play", "1")
             print("Processed Global buzz by system's logic")
+        elif key.char == 'm':
+            if buzzthru:
+                buzzthru = False
+                print("Rebuild logic: no => YES")
+            elif not buzzthru:
+                buzzthru = True
+                print("Rebuild logic: yes => NO")
     except AttributeError:
         print('No valid alphanumeric key: {0}'.format(key.char))
 
