@@ -15,12 +15,12 @@ from pythonosc.udp_client import SimpleUDPClient
 
 # configuration for OSC-Client (sending only)
 # QLab
-ip1 = "192.168.10.102"  # IP of server 1
+ip1 = "192.168.10.112"  # IP of server 1
 port1 = 53000  # Listening-Port of server 1
 client1 = SimpleUDPClient(ip1, port1)  # Create client 1
 
 # CasparCG
-ip2 = "192.168.10.103"  # IP of server 2
+ip2 = "192.168.10.113"  # IP of server 2
 port2 = 53000  # Listening-Port of server 2
 client2 = SimpleUDPClient(ip2, port2)  # Create client 2
 
